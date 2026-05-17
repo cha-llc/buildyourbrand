@@ -246,6 +246,177 @@
             font-size: 0.95rem;
         }
 
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 5rem;
+        }
+        .about-portrait {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--navy);
+        }
+        .about-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(0.15) contrast(1.05);
+            transition: filter 0.6s, transform 0.6s;
+        }
+        .about-portrait:hover img {
+            filter: grayscale(0) contrast(1);
+            transform: scale(1.02);
+        }
+        .about-portrait::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(13,13,26,0.55) 100%);
+            pointer-events: none;
+        }
+        .about-portrait-tag {
+            position: absolute;
+            left: 1.25rem; bottom: 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--ivory);
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        .about-portrait-tag span { color: var(--gold); display: block; margin-bottom: 0.2rem; }
+
+        .about-text h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--ivory);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .about-text h3 .italic { font-style: italic; color: var(--gold); font-weight: 400; }
+
+        .about-text p {
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+        }
+        .about-text p.intro {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            border-left: 2px solid var(--gold);
+            padding-left: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .about-stat {
+            text-align: left;
+        }
+        .about-stat .num {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            color: var(--gold);
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        .about-stat .label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .about-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        .about-skills span {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 0.4rem 0.85rem;
+            background: rgba(201, 168, 76, 0.06);
+            color: var(--gold);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            letter-spacing: 0.05em;
+        }
+
+        .video-block {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(26,26,46,0.6) 0%, rgba(13,13,26,0.4) 100%);
+            border: 1px solid var(--border);
+        }
+        .video-frame {
+            position: relative;
+            width: 280px;
+            aspect-ratio: 9/16;
+            background: var(--navy-deep);
+            border: 1px solid var(--gold);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .video-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .video-caption h4 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--ivory);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+        .video-caption h4 .italic { font-style: italic; color: var(--gold); }
+        .video-caption p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .video-caption .tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .video-caption .tag::before {
+            content: '';
+            width: 30px; height: 1px;
+            background: var(--gold);
+        }
+
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -757,6 +928,12 @@
             .section { padding: 4rem 1.5rem; }
             .section-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
             .section-sub { text-align: left; }
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-portrait { max-width: 380px; }
+            .about-stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+            .about-stat .num { font-size: 1.5rem; }
+            .video-block { grid-template-columns: 1fr; gap: 2rem; padding: 1.5rem; }
+            .video-frame { width: 100%; max-width: 280px; margin: 0 auto; }
             .books-feature { grid-template-columns: 1fr; gap: 5rem; }
             .books-visual { height: 380px; }
             .consult { padding: 3rem 1.5rem; }
@@ -772,6 +949,7 @@
 <nav>
     <div class="logo">C.H.A<span class="dot">.</span> <span style="color: var(--text-dim); font-weight: 400;">/ CJ H. Adisa</span></div>
     <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
         <li><a href="#apps" data-i18n="nav.apps">Apps</a></li>
         <li><a href="#shows" data-i18n="nav.shows">Shows</a></li>
         <li><a href="#books" data-i18n="nav.books">Books</a></li>
@@ -814,10 +992,83 @@
     </div>
 </section>
 
+<section class="section reveal" id="about">
+    <div class="section-head">
+        <div>
+            <div class="section-num">01 / About</div>
+            <h2><span data-i18n="about.title1">CJ H.</span> <span class="italic" data-i18n="about.title2">Adisa.</span></h2>
+        </div>
+        <p class="section-sub" data-i18n="about.sub">Founder. Operator. Builder. Storyteller. Ten years in the room. Still showing up.</p>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-portrait">
+            <img src="/assets/cj-portrait.jpg" alt="CJ H. Adisa" loading="lazy">
+            <div class="about-portrait-tag">
+                <span data-i18n="about.tagrole">Founder &amp; CEO</span>
+                C.H.A. LLC
+            </div>
+        </div>
+        <div class="about-text">
+            <h3 data-i18n="about.heading">Built across <span class="italic">four divisions.</span> Run from one operator's seat.</h3>
+            <p class="intro" data-i18n="about.intro">Operations and management professional with 10+ years of cross-sector leadership spanning disaster recovery, financial services, and multi-unit operations — now also the founder, builder, and operator of an 8+ product portfolio.</p>
+            <p data-i18n="about.p1">I founded C.H.A. LLC in 2019 and have spent the years since building what most people split across a team: the consulting practice, the SaaS portfolio, the content network, the publishing arm — and the systems that keep all of them moving without dropping the ball on any one of them.</p>
+            <p data-i18n="about.p2">My background isn't typical for a tech founder. I came up through bakery ownership, multi-unit restaurant management, personal banking, and federally regulated disaster case management. Every one of those roles taught me something I now use daily: how to build compliant systems, how to manage stress in high-stakes environments, how to lead people who are tired, and how to ship.</p>
+            <p data-i18n="about.p3">I work fully remote. I write the code, the copy, the books, and the strategy. The work is built to compound — quietly, repeatedly, on purpose.</p>
+
+            <div class="about-skills">
+                <span>Operations Leadership</span>
+                <span>SaaS Development</span>
+                <span>Agile / Waterfall PM</span>
+                <span>Federal Program Compliance</span>
+                <span>React · Next.js · Supabase</span>
+                <span>Stripe Integrations</span>
+                <span>Content Strategy</span>
+                <span>Grant Writing</span>
+                <span>Trauma-Informed Service Delivery</span>
+            </div>
+
+            <div class="about-stats">
+                <div class="about-stat">
+                    <div class="num">10+</div>
+                    <div class="label" data-i18n="about.s1">Years Leading</div>
+                </div>
+                <div class="about-stat">
+                    <div class="num">12+</div>
+                    <div class="label" data-i18n="about.s2">Products Shipped</div>
+                </div>
+                <div class="about-stat">
+                    <div class="num">04</div>
+                    <div class="label" data-i18n="about.s3">Divisions Operated</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-block">
+        <div class="video-frame">
+            <video
+                controls
+                playsinline
+                preload="metadata"
+                poster="/assets/welcome-poster.jpg">
+                <source src="/assets/welcome.mp4" type="video/mp4">
+                Your browser doesn't support embedded video.
+            </video>
+        </div>
+        <div class="video-caption">
+            <div class="tag" data-i18n="about.videotag">A Word From CJ</div>
+            <h4 data-i18n="about.videoheading">Welcome to <span class="italic">the page.</span></h4>
+            <p data-i18n="about.videodesc">A short hello — who I am, what I'm building, and why all of this lives under one roof. Captions included.</p>
+            <p style="font-family: var(--font-display); font-style: italic; color: var(--gold);" data-i18n="about.videoslogan">Sip slow. Love loud. Live free.</p>
+        </div>
+    </div>
+</section>
+
 <section class="section reveal" id="apps">
     <div class="section-head">
         <div>
-            <div class="section-num">01 / Apps</div>
+            <div class="section-num">02 / Apps</div>
             <h2><span data-i18n="apps.title1">Software</span> <span class="italic" data-i18n="apps.title2">built in-house.</span></h2>
         </div>
         <p class="section-sub" data-i18n="apps.sub">Production apps across web and mobile. Real users. Real revenue. Real uptime.</p>
@@ -919,7 +1170,7 @@
 <section class="section reveal" id="shows">
     <div class="section-head">
         <div>
-            <div class="section-num">02 / Shows</div>
+            <div class="section-num">03 / Shows</div>
             <h2><span data-i18n="shows.title1">Tea Time</span> <span class="italic" data-i18n="shows.title2">Network.</span></h2>
         </div>
         <p class="section-sub" data-i18n="shows.sub">Four shows. One voice. Sip slow. Love loud. Live free.</p>
@@ -959,7 +1210,7 @@
 <section class="section reveal" id="books">
     <div class="section-head">
         <div>
-            <div class="section-num">03 / Books</div>
+            <div class="section-num">04 / Books</div>
             <h2><span data-i18n="books.title1">Frameworks</span> <span class="italic" data-i18n="books.title2">on paper.</span></h2>
         </div>
         <p class="section-sub" data-i18n="books.sub">Proprietary frameworks turned into books, workbooks, and courses.</p>
@@ -1003,7 +1254,7 @@
 <section class="section reveal" id="tools">
     <div class="section-head">
         <div>
-            <div class="section-num">04 / Tools</div>
+            <div class="section-num">05 / Tools</div>
             <h2><span data-i18n="tools.title1">Digital</span> <span class="italic" data-i18n="tools.title2">products.</span></h2>
         </div>
         <p class="section-sub" data-i18n="tools.sub">Targeted tools for specific problems. Buy once. Run forever.</p>
@@ -1074,7 +1325,7 @@
 
 <section class="consult reveal" id="consulting">
     <div class="consult-inner">
-        <div class="consult-eyebrow" data-i18n="consult.eyebrow">05 / Consulting · CHATECHCONSULTING</div>
+        <div class="consult-eyebrow" data-i18n="consult.eyebrow">06 / Consulting · CHATECHCONSULTING</div>
         <h2><span data-i18n="consult.title1">If you've outgrown</span> <span class="italic" data-i18n="consult.title2">your tools.</span></h2>
         <p data-i18n="consult.sub">Audit. Build. Retain. For $1M–$50M operators bleeding revenue through systems that were never designed for who you are now.</p>
 
@@ -1156,6 +1407,23 @@
     const T = {
         en: {
             'nav.apps':'Apps','nav.shows':'Shows','nav.books':'Books','nav.tools':'Tools','nav.consulting':'Consulting',
+            'nav.about':'About',
+            'about.title1':'CJ H.',
+            'about.title2':'Adisa.',
+            'about.sub':'Founder. Operator. Builder. Storyteller. Ten years in the room. Still showing up.',
+            'about.tagrole':'Founder & CEO',
+            'about.heading':'Built across four divisions. Run from one operator\'s seat.',
+            'about.intro':'Operations and management professional with 10+ years of cross-sector leadership spanning disaster recovery, financial services, and multi-unit operations — now also the founder, builder, and operator of an 8+ product portfolio.',
+            'about.p1':'I founded C.H.A. LLC in 2019 and have spent the years since building what most people split across a team: the consulting practice, the SaaS portfolio, the content network, the publishing arm — and the systems that keep all of them moving without dropping the ball on any one of them.',
+            'about.p2':'My background isn\'t typical for a tech founder. I came up through bakery ownership, multi-unit restaurant management, personal banking, and federally regulated disaster case management. Every one of those roles taught me something I now use daily: how to build compliant systems, how to manage stress in high-stakes environments, how to lead people who are tired, and how to ship.',
+            'about.p3':'I work fully remote. I write the code, the copy, the books, and the strategy. The work is built to compound — quietly, repeatedly, on purpose.',
+            'about.s1':'Years Leading',
+            'about.s2':'Products Shipped',
+            'about.s3':'Divisions Operated',
+            'about.videotag':'A Word From CJ',
+            'about.videoheading':'Welcome to the page.',
+            'about.videodesc':'A short hello — who I am, what I\'m building, and why all of this lives under one roof. Captions included.',
+            'about.videoslogan':'Sip slow. Love loud. Live free.',
             'hero.eyebrow':'Founder · Builder · Storyteller',
             'hero.line1':'Apps, words, and','hero.line2':'work that compounds.',
             'hero.tagline':'Software, podcast networks, books, and consulting under one roof — C.H.A. LLC. Sip slow. Love loud. Live free.',
@@ -1171,7 +1439,7 @@
             'books.cta':'View Catalog',
             'tools.title1':'Digital','tools.title2':'products.',
             'tools.sub':'Targeted tools for specific problems. Buy once. Run forever.',
-            'consult.eyebrow':'05 / Consulting · CHATECHCONSULTING',
+            'consult.eyebrow':'06 / Consulting · CHATECHCONSULTING',
             'consult.title1':"If you've outgrown",'consult.title2':'your tools.',
             'consult.sub':'Audit. Build. Retain. For $1M–$50M operators bleeding revenue through systems that were never designed for who you are now.',
             'consult.fea':'Freedom Era Audit','consult.of':'Ops Fixer','consult.build':'Build Engagement','consult.ret':'Retainer',
@@ -1183,6 +1451,23 @@
         },
         es: {
             'nav.apps':'Apps','nav.shows':'Shows','nav.books':'Libros','nav.tools':'Herramientas','nav.consulting':'Consultoría',
+            'nav.about':'Sobre Mí',
+            'about.title1':'CJ H.',
+            'about.title2':'Adisa.',
+            'about.sub':'Fundador. Operador. Constructor. Narrador. Diez años en el cuarto. Sigo apareciendo.',
+            'about.tagrole':'Fundador y CEO',
+            'about.heading':'Construido en cuatro divisiones. Operado desde una sola silla.',
+            'about.intro':'Profesional de operaciones y gestión con más de 10 años de liderazgo intersectorial en recuperación ante desastres, servicios financieros y operaciones multi-unidad — y fundador de un portafolio de más de 8 productos.',
+            'about.p1':'Fundé C.H.A. LLC en 2019 y he pasado los años desde entonces construyendo lo que la mayoría reparte entre todo un equipo: la consultoría, el portafolio de SaaS, la red de contenido, la editorial — y los sistemas que mantienen todo en movimiento.',
+            'about.p2':'Mi trayectoria no es la típica de un fundador tech. Vengo de la propiedad de una panadería, gestión multi-unidad de restaurantes, banca personal y gestión federal de casos de desastre. Cada uno me enseñó algo que uso a diario: construir sistemas en cumplimiento, manejar el estrés en entornos de alto riesgo, liderar a personas cansadas, y entregar.',
+            'about.p3':'Trabajo 100% remoto. Escribo el código, el copy, los libros y la estrategia. El trabajo está hecho para acumularse — en silencio, repetidamente, a propósito.',
+            'about.s1':'Años de Liderazgo',
+            'about.s2':'Productos Lanzados',
+            'about.s3':'Divisiones Operadas',
+            'about.videotag':'Unas Palabras de CJ',
+            'about.videoheading':'Bienvenido a la página.',
+            'about.videodesc':'Un saludo corto — quién soy, qué estoy construyendo, y por qué todo esto vive bajo un solo techo. Con subtítulos.',
+            'about.videoslogan':'Sip slow. Love loud. Live free.',
             'hero.eyebrow':'Fundador · Constructor · Narrador',
             'hero.line1':'Apps, palabras, y','hero.line2':'trabajo que se acumula.',
             'hero.tagline':'Software, redes de podcasts, libros y consultoría bajo un solo techo — C.H.A. LLC. Sip slow. Love loud. Live free.',
@@ -1210,6 +1495,23 @@
         },
         fr: {
             'nav.apps':'Apps','nav.shows':'Émissions','nav.books':'Livres','nav.tools':'Outils','nav.consulting':'Conseil',
+            'nav.about':'À Propos',
+            'about.title1':'CJ H.',
+            'about.title2':'Adisa.',
+            'about.sub':'Fondateur. Opérateur. Bâtisseur. Conteur. Dix ans dans la pièce. Toujours présent.',
+            'about.tagrole':'Fondateur & CEO',
+            'about.heading':'Construit sur quatre divisions. Dirigé depuis un seul siège d\'opérateur.',
+            'about.intro':'Professionnel des opérations et de la gestion avec plus de 10 ans de leadership intersectoriel — récupération après catastrophe, services financiers, opérations multi-unités — et fondateur d\'un portefeuille de 8+ produits.',
+            'about.p1':'J\'ai fondé C.H.A. LLC en 2019 et passé les années depuis à construire ce que la plupart répartissent dans toute une équipe : le conseil, le portefeuille SaaS, le réseau de contenu, l\'édition — et les systèmes qui maintiennent tout en mouvement.',
+            'about.p2':'Mon parcours n\'est pas typique pour un fondateur tech. Je viens de la propriété d\'une boulangerie, de la gestion multi-unités, de la banque personnelle, et de la gestion fédérale de cas de catastrophe. Chacun m\'a appris : construire des systèmes conformes, gérer le stress, diriger les fatigués, et livrer.',
+            'about.p3':'Je travaille 100% à distance. J\'écris le code, le copy, les livres et la stratégie. Le travail est conçu pour composer — silencieusement, sciemment.',
+            'about.s1':'Années de Leadership',
+            'about.s2':'Produits Livrés',
+            'about.s3':'Divisions Opérées',
+            'about.videotag':'Un Mot de CJ',
+            'about.videoheading':'Bienvenue sur la page.',
+            'about.videodesc':'Un court bonjour — qui je suis, ce que je construis, et pourquoi tout cela vit sous un même toit. Sous-titres inclus.',
+            'about.videoslogan':'Sip slow. Love loud. Live free.',
             'hero.eyebrow':'Fondateur · Bâtisseur · Conteur',
             'hero.line1':'Apps, mots, et','hero.line2':'travail qui compose.',
             'hero.tagline':'Logiciels, réseaux de podcasts, livres et conseil sous un même toit — C.H.A. LLC. Sip slow. Love loud. Live free.',
@@ -1237,6 +1539,23 @@
         },
         de: {
             'nav.apps':'Apps','nav.shows':'Shows','nav.books':'Bücher','nav.tools':'Tools','nav.consulting':'Beratung',
+            'nav.about':'Über Mich',
+            'about.title1':'CJ H.',
+            'about.title2':'Adisa.',
+            'about.sub':'Gründer. Betreiber. Bauer. Erzähler. Zehn Jahre im Raum. Noch da.',
+            'about.tagrole':'Gründer & CEO',
+            'about.heading':'Über vier Divisionen gebaut. Aus einem Betreibersitz geführt.',
+            'about.intro':'Operations- und Management-Profi mit über 10 Jahren branchenübergreifender Führung in Katastrophenhilfe, Finanzdienstleistungen und Multi-Unit-Betrieb — und Gründer eines 8+ Produkt-Portfolios.',
+            'about.p1':'Ich habe C.H.A. LLC 2019 gegründet und seitdem aufgebaut, was die meisten auf ein ganzes Team verteilen: die Beratung, das SaaS-Portfolio, das Content-Netzwerk, den Verlag — und die Systeme die alles in Bewegung halten.',
+            'about.p2':'Mein Hintergrund ist nicht typisch für einen Tech-Gründer. Bäckerei, Multi-Unit-Restaurantmanagement, Privatbanking, bundesregulierte Katastrophen-Fallarbeit — jede Rolle hat mir etwas beigebracht, das ich täglich nutze.',
+            'about.p3':'Ich arbeite 100% remote. Ich schreibe den Code, den Copy, die Bücher und die Strategie. Die Arbeit ist gebaut um sich aufzubauen — leise, wiederholt, mit Absicht.',
+            'about.s1':'Jahre Führung',
+            'about.s2':'Produkte Geliefert',
+            'about.s3':'Divisionen Betrieben',
+            'about.videotag':'Ein Wort Von CJ',
+            'about.videoheading':'Willkommen auf der Seite.',
+            'about.videodesc':'Ein kurzes Hallo — wer ich bin, was ich baue, und warum all das unter einem Dach lebt. Mit Untertiteln.',
+            'about.videoslogan':'Sip slow. Love loud. Live free.',
             'hero.eyebrow':'Gründer · Bauer · Erzähler',
             'hero.line1':'Apps, Worte, und','hero.line2':'Arbeit die wächst.',
             'hero.tagline':'Software, Podcast-Netzwerke, Bücher und Beratung unter einem Dach — C.H.A. LLC. Sip slow. Love loud. Live free.',
@@ -1264,6 +1583,23 @@
         },
         pt: {
             'nav.apps':'Apps','nav.shows':'Shows','nav.books':'Livros','nav.tools':'Ferramentas','nav.consulting':'Consultoria',
+            'nav.about':'Sobre',
+            'about.title1':'CJ H.',
+            'about.title2':'Adisa.',
+            'about.sub':'Fundador. Operador. Construtor. Narrador. Dez anos na sala. Continuo aparecendo.',
+            'about.tagrole':'Fundador e CEO',
+            'about.heading':'Construído em quatro divisões. Operado de um só assento.',
+            'about.intro':'Profissional de operações e gestão com mais de 10 anos de liderança intersetorial em recuperação de desastres, serviços financeiros e operações multi-unidade — e fundador de um portfólio de mais de 8 produtos.',
+            'about.p1':'Fundei a C.H.A. LLC em 2019 e desde então construí o que a maioria divide em um time inteiro: a consultoria, o portfólio de SaaS, a rede de conteúdo, a editora — e os sistemas que mantêm tudo em movimento.',
+            'about.p2':'Meu histórico não é típico para um fundador de tech. Vim da padaria própria, gestão multi-unidade de restaurantes, banco pessoal, e gestão federal de casos de desastre. Cada papel me ensinou algo que uso diariamente.',
+            'about.p3':'Trabalho 100% remoto. Escrevo o código, o copy, os livros e a estratégia. O trabalho é feito para se acumular — em silêncio, repetidamente, de propósito.',
+            'about.s1':'Anos de Liderança',
+            'about.s2':'Produtos Lançados',
+            'about.s3':'Divisões Operadas',
+            'about.videotag':'Uma Palavra do CJ',
+            'about.videoheading':'Bem-vindo à página.',
+            'about.videodesc':'Um olá rápido — quem sou, o que estou construindo, e por que tudo isso vive sob um único teto. Com legendas.',
+            'about.videoslogan':'Sip slow. Love loud. Live free.',
             'hero.eyebrow':'Fundador · Construtor · Narrador',
             'hero.line1':'Apps, palavras, e','hero.line2':'trabalho que se acumula.',
             'hero.tagline':'Software, redes de podcasts, livros e consultoria sob um teto — C.H.A. LLC. Sip slow. Love loud. Live free.',
