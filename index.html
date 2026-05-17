@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Brand — TikTok Live Branding & Overlays</title>
+    <meta name="description" content="Professional TikTok Live overlays, branding systems, and creator design. Custom designs for serious creators. $250-400.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1A1A2E;
+            --gold: #C9A84C;
+            --teal: #2A9D8F;
+            --white: #FFFFFF;
+            --dark-bg: #0F0F1E;
+            --text-light: #E8E8E8;
+            --accent: #F59C1B;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--navy) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+            background: rgba(26, 26, 46, 0.95);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 8px;
+            padding: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .language-selector select {
+            background: transparent;
+            color: var(--gold);
+            border: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .language-selector select option {
+            background: var(--navy);
+            color: var(--text-light);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .cta-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 156, 27, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(42, 157, 143, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: rgba(232, 232, 232, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideUp 0.8s ease 0.1s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            animation: slideUp 0.8s ease 0.2s both;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta .secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .hero-cta .secondary:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 6rem 2rem;
+            background: rgba(26, 26, 46, 0.5);
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.1) 0%, rgba(201, 168, 76, 0.05) 100%);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 12px 32px rgba(201, 168, 76, 0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .portfolio-item:nth-child(2) .portfolio-image {
+            background: linear-gradient(135deg, #FF6B6B 0%, var(--accent) 100%);
+        }
+
+        .portfolio-item:nth-child(3) .portfolio-image {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-item h3 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-item p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 2rem;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.1) 0%, rgba(42, 157, 143, 0.05) 100%);
+            border: 2px solid rgba(201, 168, 76, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:nth-child(2) {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:nth-child(2)::before {
+            content: attr(data-popular);
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 12px 32px rgba(201, 168, 76, 0.2);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 1rem 0;
+        }
+
+        .price-period {
+            color: rgba(232, 232, 232, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: '✓ ';
+            color: var(--teal);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: rgba(26, 26, 46, 0.5);
+        }
+
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-wrapper h2 {
+            text-align: center;
+        }
+
+        .contact-form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 6px;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(201, 168, 76, 0.05);
+            box-shadow: 0 0 12px rgba(201, 168, 76, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 30, 0.8);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(201, 168, 76, 0.1);
+            font-size: 0.9rem;
+            color: rgba(232, 232, 232, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 4rem 2rem;
+            }
+
+            .portfolio-grid,
+            .pricing-grid {
+                gap: 1.5rem;
+            }
+
+            .pricing-card:nth-child(2) {
+                transform: scale(1);
+            }
+
+            nav a:not(.cta-button) {
+                display: none;
+            }
+
+            .language-selector {
+                top: 80px;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .highlight {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="languageSelect" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="ru">Русский</option>
+            <option value="ja">日本語</option>
+            <option value="zh">中文</option>
+            <option value="ko">한국어</option>
+            <option value="ar">العربية</option>
+            <option value="hi">हिन्दी</option>
+            <option value="tr">Türkçe</option>
+            <option value="pl">Polski</option>
+            <option value="nl">Nederlands</option>
+        </select>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo" data-i18n="brand">Build Your Brand</a>
+        <ul>
+            <li><a href="#portfolio" data-i18n="nav.work">Work</a></li>
+            <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+            <li><a href="#contact" class="cta-button" data-i18n="nav.start">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 data-i18n="hero.title">Professional TikTok Live Branding</h1>
+            <p class="subtitle" data-i18n="hero.subtitle">Custom overlay systems, branded graphics, and complete visual identity for serious creators</p>
+            <div class="hero-cta">
+                <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView()" data-i18n="cta.pricing">See Pricing</button>
+                <button class="cta-button secondary" onclick="document.getElementById('portfolio').scrollIntoView()" data-i18n="cta.work">View Work</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 data-i18n="portfolio.title">Recent Work</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">📱</div>
+                    <div class="portfolio-content">
+                        <h3 data-i18n="portfolio.item1.title">TikTok Live Overlay System</h3>
+                        <p data-i18n="portfolio.item1.desc">Complete branded overlay package with chat alerts, follower notifications, and donation displays. Custom color system matching brand identity.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🎨</div>
+                    <div class="portfolio-content">
+                        <h3 data-i18n="portfolio.item2.title">Brand Identity Kit</h3>
+                        <p data-i18n="portfolio.item2.desc">Color palette, typography system, and design guidelines. All assets delivered in editable Canva files for ongoing use and customization.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">✨</div>
+                    <div class="portfolio-content">
+                        <h3 data-i18n="portfolio.item3.title">Social Media Graphics</h3>
+                        <p data-i18n="portfolio.item3.desc">Cohesive visual system across TikTok, Instagram, YouTube. Intro/outro animations, thumbnails, story templates. All on brand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 data-i18n="pricing.title">Simple Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card" data-popular="STARTER">
+                    <h3 data-i18n="pricing.starter.name">Starter</h3>
+                    <div class="price">$250</div>
+                    <div class="price-period" data-i18n="pricing.period">One-time project</div>
+                    <ul class="pricing-features">
+                        <li data-i18n="pricing.starter.f1">TikTok Live Overlay Pack</li>
+                        <li data-i18n="pricing.starter.f2">3-5 custom graphics</li>
+                        <li data-i18n="pricing.starter.f3">Chat alerts & follower notifications</li>
+                        <li data-i18n="pricing.starter.f4">5-day turnaround</li>
+                        <li data-i18n="pricing.starter.f5">1 round of revisions</li>
+                    </ul>
+                    <button class="cta-button" onclick="scrollToContact()" data-i18n="cta.start">Get Started</button>
+                </div>
+                <div class="pricing-card" data-popular="MOST POPULAR">
+                    <h3 data-i18n="pricing.pro.name">Pro</h3>
+                    <div class="price">$400</div>
+                    <div class="price-period" data-i18n="pricing.period">One-time project</div>
+                    <ul class="pricing-features">
+                        <li data-i18n="pricing.pro.f1">Everything in Starter</li>
+                        <li data-i18n="pricing.pro.f2">Complete Brand System</li>
+                        <li data-i18n="pricing.pro.f3">Color palette & typography</li>
+                        <li data-i18n="pricing.pro.f4">Unlimited revisions</li>
+                        <li data-i18n="pricing.pro.f5">Editable Canva files</li>
+                        <li data-i18n="pricing.pro.f6">5-day turnaround</li>
+                    </ul>
+                    <button class="cta-button" onclick="scrollToContact()" data-i18n="cta.start">Get Started</button>
+                </div>
+                <div class="pricing-card" data-popular="CUSTOM">
+                    <h3 data-i18n="pricing.custom.name">Custom</h3>
+                    <div class="price">$500+</div>
+                    <div class="price-period" data-i18n="pricing.period">Custom scope</div>
+                    <ul class="pricing-features">
+                        <li data-i18n="pricing.custom.f1">Everything in Pro</li>
+                        <li data-i18n="pricing.custom.f2">Extended timelines</li>
+                        <li data-i18n="pricing.custom.f3">Multiple platforms</li>
+                        <li data-i18n="pricing.custom.f4">Animation/video elements</li>
+                        <li data-i18n="pricing.custom.f5">Dedicated support</li>
+                    </ul>
+                    <button class="cta-button" onclick="scrollToContact()" data-i18n="cta.talk">Let's Talk</button>
+                </div>
+            </div>
+            <p class="text-center mt-2" style="color: rgba(232, 232, 232, 0.7); font-size: 0.95rem;" data-i18n="pricing.note">All projects include 5-day turnaround, unlimited revisions, and editable files you control.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-wrapper">
+            <h2 data-i18n="contact.title">Ready to Build Your Brand?</h2>
+            <p data-i18n="contact.desc">Let's create something that stands out. Fill out the form below and I'll get back to you within 24 hours.</p>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name" data-i18n="form.name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="email" data-i18n="form.email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="platform" data-i18n="form.platform">Platform / Link</label>
+                    <input type="text" id="platform" name="platform" placeholder="TikTok, Instagram, YouTube, etc.">
+                </div>
+                <div class="form-group">
+                    <label for="message" data-i18n="form.message">Tell me about your project</label>
+                    <textarea id="message" name="message" required placeholder="What kind of branding are you looking for? What's your vision?"></textarea>
+                </div>
+                <button type="submit" class="cta-button form-submit" data-i18n="form.submit">Send My Project Brief</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p data-i18n="footer">© 2026 Build Your Brand. Designed for creators who take themselves seriously.</p>
+    </footer>
+
+    <script>
+        // Translation data for 15 languages
+        const translations = {
+            en: {
+                brand: "Build Your Brand",
+                "nav.work": "Work",
+                "nav.pricing": "Pricing",
+                "nav.contact": "Contact",
+                "nav.start": "Get Started",
+                "hero.title": "Professional TikTok Live Branding",
+                "hero.subtitle": "Custom overlay systems, branded graphics, and complete visual identity for serious creators",
+                "cta.pricing": "See Pricing",
+                "cta.work": "View Work",
+                "cta.start": "Get Started",
+                "cta.talk": "Let's Talk",
+                "portfolio.title": "Recent Work",
+                "portfolio.item1.title": "TikTok Live Overlay System",
+                "portfolio.item1.desc": "Complete branded overlay package with chat alerts, follower notifications, and donation displays. Custom color system matching brand identity.",
+                "portfolio.item2.title": "Brand Identity Kit",
+                "portfolio.item2.desc": "Color palette, typography system, and design guidelines. All assets delivered in editable Canva files for ongoing use and customization.",
+                "portfolio.item3.title": "Social Media Graphics",
+                "portfolio.item3.desc": "Cohesive visual system across TikTok, Instagram, YouTube. Intro/outro animations, thumbnails, story templates. All on brand.",
+                "pricing.title": "Simple Pricing",
+                "pricing.period": "One-time project",
+                "pricing.starter.name": "Starter",
+                "pricing.starter.f1": "TikTok Live Overlay Pack",
+                "pricing.starter.f2": "3-5 custom graphics",
+                "pricing.starter.f3": "Chat alerts & follower notifications",
+                "pricing.starter.f4": "5-day turnaround",
+                "pricing.starter.f5": "1 round of revisions",
+                "pricing.pro.name": "Pro",
+                "pricing.pro.f1": "Everything in Starter",
+                "pricing.pro.f2": "Complete Brand System",
+                "pricing.pro.f3": "Color palette & typography",
+                "pricing.pro.f4": "Unlimited revisions",
+                "pricing.pro.f5": "Editable Canva files",
+                "pricing.pro.f6": "5-day turnaround",
+                "pricing.custom.name": "Custom",
+                "pricing.custom.f1": "Everything in Pro",
+                "pricing.custom.f2": "Extended timelines",
+                "pricing.custom.f3": "Multiple platforms",
+                "pricing.custom.f4": "Animation/video elements",
+                "pricing.custom.f5": "Dedicated support",
+                "pricing.note": "All projects include 5-day turnaround, unlimited revisions, and editable files you control.",
+                "contact.title": "Ready to Build Your Brand?",
+                "contact.desc": "Let's create something that stands out. Fill out the form below and I'll get back to you within 24 hours.",
+                "form.name": "Your Name",
+                "form.email": "Email Address",
+                "form.platform": "Platform / Link",
+                "form.message": "Tell me about your project",
+                "form.submit": "Send My Project Brief",
+                "footer": "© 2026 Build Your Brand. Designed for creators who take themselves seriously."
+            },
+            es: {
+                brand: "Construye Tu Marca",
+                "nav.work": "Trabajo",
+                "nav.pricing": "Precios",
+                "nav.contact": "Contacto",
+                "nav.start": "Comenzar",
+                "hero.title": "Marca Profesional para TikTok Live",
+                "hero.subtitle": "Sistemas de overlay personalizados, gráficos de marca e identidad visual completa para creadores serios",
+                "cta.pricing": "Ver Precios",
+                "cta.work": "Ver Trabajo",
+                "cta.start": "Comenzar",
+                "cta.talk": "Hablemos",
+                "portfolio.title": "Trabajos Recientes",
+                "portfolio.item1.title": "Sistema de Overlay para TikTok Live",
+                "portfolio.item1.desc": "Paquete completo de overlay con alertas de chat, notificaciones de seguidores y pantallas de donaciones. Sistema de colores personalizado.",
+                "portfolio.item2.title": "Kit de Identidad de Marca",
+                "portfolio.item2.desc": "Paleta de colores, sistema tipográfico y guías de diseño. Todos los activos entregados en archivos Canva editables.",
+                "portfolio.item3.title": "Gráficos para Redes Sociales",
+                "portfolio.item3.desc": "Sistema visual coherente en TikTok, Instagram y YouTube. Animaciones de intro/outro, miniaturas, plantillas de historias.",
+                "pricing.title": "Precios Simples",
+                "pricing.period": "Proyecto único",
+                "pricing.starter.name": "Inicial",
+                "pricing.starter.f1": "Paquete de Overlay para TikTok Live",
+                "pricing.starter.f2": "3-5 gráficos personalizados",
+                "pricing.starter.f3": "Alertas de chat y notificaciones",
+                "pricing.starter.f4": "Entrega en 5 días",
+                "pricing.starter.f5": "1 ronda de revisiones",
+                "pricing.pro.name": "Pro",
+                "pricing.pro.f1": "Todo en Inicial",
+                "pricing.pro.f2": "Sistema Completo de Marca",
+                "pricing.pro.f3": "Paleta de colores y tipografía",
+                "pricing.pro.f4": "Revisiones ilimitadas",
+                "pricing.pro.f5": "Archivos Canva editables",
+                "pricing.pro.f6": "Entrega en 5 días",
+                "pricing.custom.name": "Personalizado",
+                "pricing.custom.f1": "Todo en Pro",
+                "pricing.custom.f2": "Cronogramas extendidos",
+                "pricing.custom.f3": "Múltiples plataformas",
+                "pricing.custom.f4": "Elementos con animación/video",
+                "pricing.custom.f5": "Soporte dedicado",
+                "pricing.note": "Todos los proyectos incluyen entrega en 5 días, revisiones ilimitadas y archivos editables.",
+                "contact.title": "¿Listo para Construir Tu Marca?",
+                "contact.desc": "Creemos algo excepcional. Completa el formulario y te responderé dentro de 24 horas.",
+                "form.name": "Tu Nombre",
+                "form.email": "Correo Electrónico",
+                "form.platform": "Plataforma / Enlace",
+                "form.message": "Cuéntame sobre tu proyecto",
+                "form.submit": "Enviar Breve del Proyecto",
+                "footer": "© 2026 Construye Tu Marca. Diseñado para creadores que se toman en serio."
+            },
+            fr: {
+                brand: "Construisez Votre Marque",
+                "nav.work": "Travaux",
+                "nav.pricing": "Tarifs",
+                "nav.contact": "Contact",
+                "nav.start": "Commencer",
+                "hero.title": "Marque Professionnelle pour TikTok Live",
+                "hero.subtitle": "Systèmes de superposition personnalisés, graphiques de marque et identité visuelle complète pour les créateurs sérieux",
+                "cta.pricing": "Voir les Tarifs",
+                "cta.work": "Voir les Travaux",
+                "cta.start": "Commencer",
+                "cta.talk": "Parlons",
+                "portfolio.title": "Travaux Récents",
+                "portfolio.item1.title": "Système de Superposition TikTok Live",
+                "portfolio.item1.desc": "Forfait complet de superposition avec alertes de chat, notifications d'abonnés et affichages de dons. Système de couleurs personnalisé.",
+                "portfolio.item2.title": "Kit d'Identité de Marque",
+                "portfolio.item2.desc": "Palette de couleurs, système typographique et directives de conception. Tous les éléments livrés dans des fichiers Canva modifiables.",
+                "portfolio.item3.title": "Graphiques pour les Réseaux Sociaux",
+                "portfolio.item3.desc": "Système visuel cohérent sur TikTok, Instagram et YouTube. Animations d'intro/outro, vignettes, modèles d'histoires.",
+                "pricing.title": "Tarifs Simples",
+                "pricing.period": "Projet unique",
+                "pricing.starter.name": "Débutant",
+                "pricing.starter.f1": "Forfait de Superposition TikTok Live",
+                "pricing.starter.f2": "3-5 graphiques personnalisés",
+                "pricing.starter.f3": "Alertes de chat et notifications",
+                "pricing.starter.f4": "Livraison en 5 jours",
+                "pricing.starter.f5": "1 tour de révisions",
+                "pricing.pro.name": "Pro",
+                "pricing.pro.f1": "Tout en Débutant",
+                "pricing.pro.f2": "Système Complet de Marque",
+                "pricing.pro.f3": "Palette de couleurs et typographie",
+                "pricing.pro.f4": "Révisions illimitées",
+                "pricing.pro.f5": "Fichiers Canva modifiables",
+                "pricing.pro.f6": "Livraison en 5 jours",
+                "pricing.custom.name": "Personnalisé",
+                "pricing.custom.f1": "Tout en Pro",
+                "pricing.custom.f2": "Délais prolongés",
+                "pricing.custom.f3": "Plusieurs plates-formes",
+                "pricing.custom.f4": "Éléments avec animation/vidéo",
+                "pricing.custom.f5": "Support dédié",
+                "pricing.note": "Tous les projets incluent une livraison en 5 jours, des révisions illimitées et des fichiers modifiables.",
+                "contact.title": "Prêt à Construire Votre Marque ?",
+                "contact.desc": "Créons quelque chose d'exceptionnel. Remplissez le formulaire et je vous répondrai dans les 24 heures.",
+                "form.name": "Votre Nom",
+                "form.email": "Adresse E-mail",
+                "form.platform": "Plate-forme / Lien",
+                "form.message": "Parlez-moi de votre projet",
+                "form.submit": "Envoyer le Résumé du Projet",
+                "footer": "© 2026 Construisez Votre Marque. Conçu pour les créateurs qui se prennent au sérieux."
+            },
+            de: {
+                brand: "Bauen Sie Ihre Marke",
+                "nav.work": "Arbeiten",
+                "nav.pricing": "Preise",
+                "nav.contact": "Kontakt",
+                "nav.start": "Anfangen",
+                "hero.title": "Professionelle TikTok-Live-Markenbildung",
+                "hero.subtitle": "Benutzerdefinierte Overlay-Systeme, Markengrafiken und vollständige visuelle Identität für ernsthafte Creator",
+                "cta.pricing": "Preise Ansehen",
+                "cta.work": "Arbeiten Ansehen",
+                "cta.start": "Anfangen",
+                "cta.talk": "Lass uns Reden",
+                "portfolio.title": "Aktuelle Arbeiten",
+                "portfolio.item1.title": "TikTok-Live-Overlay-System",
+                "portfolio.item1.desc": "Kompletes Overlay-Paket mit Chat-Benachrichtigungen, Follower-Benachrichtigungen und Spendendisplays. Benutzerdefiniertes Farbsystem.",
+                "portfolio.item2.title": "Markenidentitäts-Kit",
+                "portfolio.item2.desc": "Farbpalette, Typografiesystem und Designrichtlinien. Alle Assets werden in bearbeitbaren Canva-Dateien bereitgestellt.",
+                "portfolio.item3.title": "Social-Media-Grafiken",
+                "portfolio.item3.desc": "Einheitliches visuelles System auf TikTok, Instagram und YouTube. Intro-/Outro-Animationen, Miniaturen, Story-Vorlagen.",
+                "pricing.title": "Einfache Preise",
+                "pricing.period": "Einmaliges Projekt",
+                "pricing.starter.name": "Starter",
+                "pricing.starter.f1": "TikTok-Live-Overlay-Paket",
+                "pricing.starter.f2": "3-5 benutzerdefinierte Grafiken",
+                "pricing.starter.f3": "Chat-Warnungen und Benachrichtigungen",
+                "pricing.starter.f4": "5-Tage-Lieferung",
+                "pricing.starter.f5": "1 Überarbeitungsrunde",
+                "pricing.pro.name": "Pro",
+                "pricing.pro.f1": "Alles in Starter",
+                "pricing.pro.f2": "Komplettes Markenbildungssystem",
+                "pricing.pro.f3": "Farbpalette und Typografie",
+                "pricing.pro.f4": "Unbegrenzte Überarbeitungen",
+                "pricing.pro.f5": "Bearbeitbare Canva-Dateien",
+                "pricing.pro.f6": "5-Tage-Lieferung",
+                "pricing.custom.name": "Benutzerdefiniert",
+                "pricing.custom.f1": "Alles in Pro",
+                "pricing.custom.f2": "Erweiterte Zeitpläne",
+                "pricing.custom.f3": "Mehrere Plattformen",
+                "pricing.custom.f4": "Animations-/Videoelemente",
+                "pricing.custom.f5": "Engagierte Unterstützung",
+                "pricing.note": "Alle Projekte beinhalten 5-Tage-Lieferung, unbegrenzte Überarbeitungen und bearbeitbare Dateien.",
+                "contact.title": "Bereit, Ihre Marke Aufzubauen?",
+                "contact.desc": "Lassen Sie uns etwas Außergewöhnliches schaffen. Füllen Sie das Formular aus und ich antworte innerhalb von 24 Stunden.",
+                "form.name": "Ihr Name",
+                "form.email": "E-Mail-Adresse",
+                "form.platform": "Plattform / Link",
+                "form.message": "Erzählen Sie mir von Ihrem Projekt",
+                "form.submit": "Projektbrief Absenden",
+                "footer": "© 2026 Bauen Sie Ihre Marke. Designed für Creator, die es ernst meinen."
+            },
+            pt: {
+                brand: "Construa Sua Marca",
+                "nav.work": "Trabalhos",
+                "nav.pricing": "Preços",
+                "nav.contact": "Contato",
+                "nav.start": "Começar",
+                "hero.title": "Marca Profissional para TikTok Live",
+                "hero.subtitle": "Sistemas de sobreposição personalizados, gráficos de marca e identidade visual completa para criadores sérios",
+                "cta.pricing": "Ver Preços",
+                "cta.work": "Ver Trabalhos",
+                "cta.start": "Começar",
+                "cta.talk": "Vamos Conversar",
+                "portfolio.title": "Trabalhos Recentes",
+                "portfolio.item1.title": "Sistema de Sobreposição TikTok Live",
+                "portfolio.item1.desc": "Pacote completo de sobreposição com alertas de chat, notificações de seguidores e exibições de doações. Sistema de cores personalizado.",
+                "portfolio.item2.title": "Kit de Identidade da Marca",
+                "portfolio.item2.desc": "Paleta de cores, sistema tipográfico e diretrizes de design. Todos os ativos entregues em arquivos Canva editáveis.",
+                "portfolio.item3.title": "Gráficos de Mídia Social",
+                "portfolio.item3.desc": "Sistema visual coeso em TikTok, Instagram e YouTube. Animações de intro/outro, miniaturas, modelos de histórias.",
+                "pricing.title": "Preços Simples",
+                "pricing.period": "Projeto único",
+                "pricing.starter.name": "Iniciante",
+                "pricing.starter.f1": "Pacote de Sobreposição TikTok Live",
+                "pricing.starter.f2": "3-5 gráficos personalizados",
+                "pricing.starter.f3": "Alertas de chat e notificações",
+                "pricing.starter.f4": "Entrega em 5 dias",
+                "pricing.starter.f5": "1 rodada de revisões",
+                "pricing.pro.name": "Pro",
+                "pricing.pro.f1": "Tudo em Iniciante",
+                "pricing.pro.f2": "Sistema Completo de Marca",
+                "pricing.pro.f3": "Paleta de cores e tipografia",
+                "pricing.pro.f4": "Revisões ilimitadas",
+                "pricing.pro.f5": "Arquivos Canva editáveis",
+                "pricing.pro.f6": "Entrega em 5 dias",
+                "pricing.custom.name": "Personalizado",
+                "pricing.custom.f1": "Tudo em Pro",
+                "pricing.custom.f2": "Prazos estendidos",
+                "pricing.custom.f3": "Múltiplas plataformas",
+                "pricing.custom.f4": "Elementos de animação/vídeo",
+                "pricing.custom.f5": "Suporte dedicado",
+                "pricing.note": "Todos os projetos incluem entrega em 5 dias, revisões ilimitadas e arquivos editáveis.",
+                "contact.title": "Pronto para Construir Sua Marca?",
+                "contact.desc": "Vamos criar algo excepcional. Preencha o formulário e responderei dentro de 24 horas.",
+                "form.name": "Seu Nome",
+                "form.email": "Endereço de E-mail",
+                "form.platform": "Plataforma / Link",
+                "form.message": "Conte-me sobre seu projeto",
+                "form.submit": "Enviar Resumo do Projeto",
+                "footer": "© 2026 Construa Sua Marca. Projetado para criadores que se levam a sério."
+            },
+            ja: {
+                brand: "あなたのブランドを構築",
+                "nav.work": "作品",
+                "nav.pricing": "価格",
+                "nav.contact": "連絡先",
+                "nav.start": "始める",
+                "hero.title": "プロフェッショナルなTikTok Liveブランディング",
+                "hero.subtitle": "カスタムオーバーレイシステム、ブランドグラフィックス、シリアスなクリエイターのための完全なビジュアルアイデンティティ",
+                "cta.pricing": "価格を見る",
+                "cta.work": "作品を見る",
+                "cta.start": "始める",
+                "cta.talk": "相談する",
+                "portfolio.title": "最近の作品",
+                "portfolio.item1.title": "TikTok Liveオーバーレイシステム",
+                "portfolio.item1.desc": "チャットアラート、フォロワー通知、寄付ディスプレイを備えた完全なオーバーレイパッケージ。カスタマイズされたカラーシステム。",
+                "portfolio.item2.title": "ブランドアイデンティティキット",
+                "portfolio.item2.desc": "カラーパレット、タイポグラフィシステム、デザインガイドライン。すべてのアセットは編集可能なCanvaファイルで配信されます。",
+                "portfolio.item3.title": "ソーシャルメディアグラフィックス",
+                "portfolio.item3.desc": "TikTok、Instagram、YouTubeを統一したビジュアルシステム。イントロ/アウトロアニメーション、サムネイル、ストーリーテンプレート。",
+                "pricing.title": "シンプルな価格設定",
+                "pricing.period": "1回限りのプロジェクト",
+                "pricing.starter.name": "スターター",
+                "pricing.starter.f1": "TikTok Liveオーバーレイパッケージ",
+                "pricing.starter.f2": "3-5カスタムグラフィックス",
+                "pricing.starter.f3": "チャットアラートと通知",
+                "pricing.starter.f4": "5日納期",
+                "pricing.starter.f5": "1回の修正",
+                "pricing.pro.name": "プロ",
+                "pricing.pro.f1": "スターターのすべて",
+                "pricing.pro.f2": "完全なブランドシステム",
+                "pricing.pro.f3": "カラーパレットとタイポグラフィ",
+                "pricing.pro.f4": "無制限の修正",
+                "pricing.pro.f5": "編集可能なCanvaファイル",
+                "pricing.pro.f6": "5日納期",
+                "pricing.custom.name": "カスタム",
+                "pricing.custom.f1": "プロのすべて",
+                "pricing.custom.f2": "延長スケジュール",
+                "pricing.custom.f3": "複数プラットフォーム",
+                "pricing.custom.f4": "アニメーション/ビデオ要素",
+                "pricing.custom.f5": "専任サポート",
+                "pricing.note": "すべてのプロジェクトに5日納期、無制限の修正、編集可能なファイルが含まれます。",
+                "contact.title": "ブランドを構築する準備はできていますか?",
+                "contact.desc": "素晴らしいものを一緒に作りましょう。フォームに入力して送信すれば、24時間以内に返信します。",
+                "form.name": "お名前",
+                "form.email": "メールアドレス",
+                "form.platform": "プラットフォーム / リンク",
+                "form.message": "プロジェクトについて教えてください",
+                "form.submit": "プロジェクト概要を送信",
+                "footer": "© 2026 あなたのブランドを構築。真摯なクリエイターのために設計されました。"
+            },
+            zh: {
+                brand: "打造您的品牌",
+                "nav.work": "作品",
+                "nav.pricing": "价格",
+                "nav.contact": "联系",
+                "nav.start": "开始",
+                "hero.title": "专业的TikTok直播品牌",
+                "hero.subtitle": "自定义叠加系统、品牌图形和认真的创作者的完整视觉身份",
+                "cta.pricing": "查看价格",
+                "cta.work": "查看作品",
+                "cta.start": "开始",
+                "cta.talk": "让我们谈谈",
+                "portfolio.title": "最近的作品",
+                "portfolio.item1.title": "TikTok直播叠加系统",
+                "portfolio.item1.desc": "包含聊天警报、粉丝通知和捐赠显示的完整叠加套件。自定义颜色系统。",
+                "portfolio.item2.title": "品牌身份套件",
+                "portfolio.item2.desc": "色调板、排版系统和设计指南。所有资产均以可编辑的Canva文件交付。",
+                "portfolio.item3.title": "社交媒体图形",
+                "portfolio.item3.desc": "跨TikTok、Instagram和YouTube的统一视觉系统。开场/结场动画、缩略图、故事模板。",
+                "pricing.title": "简单定价",
+                "pricing.period": "一次性项目",
+                "pricing.starter.name": "入门版",
+                "pricing.starter.f1": "TikTok直播叠加套件",
+                "pricing.starter.f2": "3-5个自定义图形",
+                "pricing.starter.f3": "聊天警报和通知",
+                "pricing.starter.f4": "5天交付",
+                "pricing.starter.f5": "1轮修改",
+                "pricing.pro.name": "专业版",
+                "pricing.pro.f1": "入门版的所有内容",
+                "pricing.pro.f2": "完整的品牌系统",
+                "pricing.pro.f3": "色调板和排版",
+                "pricing.pro.f4": "无限制修改",
+                "pricing.pro.f5": "可编辑的Canva文件",
+                "pricing.pro.f6": "5天交付",
+                "pricing.custom.name": "定制版",
+                "pricing.custom.f1": "专业版的所有内容",
+                "pricing.custom.f2": "延长时间表",
+                "pricing.custom.f3": "多个平台",
+                "pricing.custom.f4": "动画/视频元素",
+                "pricing.custom.f5": "专门支持",
+                "pricing.note": "所有项目包括5天交付、无限制修改和可编辑的文件。",
+                "contact.title": "准备好打造您的品牌了吗?",
+                "contact.desc": "让我们创造一些不同的东西。填写表格，我会在24小时内回复您。",
+                "form.name": "您的名字",
+                "form.email": "电子邮件地址",
+                "form.platform": "平台 / 链接",
+                "form.message": "告诉我关于您的项目",
+                "form.submit": "发送项目简介",
+                "footer": "© 2026 打造您的品牌。为认真的创作者而设计。"
+            },
+            ko: {
+                brand: "브랜드 구축",
+                "nav.work": "작업",
+                "nav.pricing": "가격",
+                "nav.contact": "연락처",
+                "nav.start": "시작하기",
+                "hero.title": "전문적인 TikTok 라이브 브랜딩",
+                "hero.subtitle": "진지한 크리에이터를 위한 맞춤형 오버레이 시스템, 브랜드 그래픽 및 완전한 시각적 정체성",
+                "cta.pricing": "가격 보기",
+                "cta.work": "작업 보기",
+                "cta.start": "시작하기",
+                "cta.talk": "대화하기",
+                "portfolio.title": "최근 작업",
+                "portfolio.item1.title": "TikTok 라이브 오버레이 시스템",
+                "portfolio.item1.desc": "채팅 경고, 팔로워 알림 및 기부 디스플레이가 포함된 완전한 오버레이 패키지. 맞춤형 색상 시스템.",
+                "portfolio.item2.title": "브랜드 정체성 키트",
+                "portfolio.item2.desc": "색상 팔레트, 타이포그래피 시스템 및 디자인 가이드라인. 모든 자산이 편집 가능한 Canva 파일로 제공됩니다.",
+                "portfolio.item3.title": "소셜 미디어 그래픽",
+                "portfolio.item3.desc": "TikTok, Instagram, YouTube를 통한 일관된 비주얼 시스템. 인트로/아웃트로 애니메이션, 썸네일, 스토리 템플릿.",
+                "pricing.title": "간단한 가격",
+                "pricing.period": "일회성 프로젝트",
+                "pricing.starter.name": "스타터",
+                "pricing.starter.f1": "TikTok 라이브 오버레이 패키지",
+                "pricing.starter.f2": "3-5개 맞춤형 그래픽",
+                "pricing.starter.f3": "채팅 경고 및 알림",
+                "pricing.starter.f4": "5일 納期",
+                "pricing.starter.f5": "1회 수정",
+                "pricing.pro.name": "프로",
+                "pricing.pro.f1": "스타터의 모든 기능",
+                "pricing.pro.f2": "완전한 브랜드 시스템",
+                "pricing.pro.f3": "색상 팔레트 및 타이포그래피",
+                "pricing.pro.f4": "무제한 수정",
+                "pricing.pro.f5": "편집 가능한 Canva 파일",
+                "pricing.pro.f6": "5일 납기",
+                "pricing.custom.name": "커스텀",
+                "pricing.custom.f1": "프로의 모든 기능",
+                "pricing.custom.f2": "연장된 타임라인",
+                "pricing.custom.f3": "여러 플랫폼",
+                "pricing.custom.f4": "애니메이션/비디오 요소",
+                "pricing.custom.f5": "전담 지원",
+                "pricing.note": "모든 프로젝트에는 5일 납기, 무제한 수정 및 편집 가능한 파일이 포함됩니다.",
+                "contact.title": "브랜드를 구축할 준비가 되셨습니까?",
+                "contact.desc": "뭔가 특별한 것을 만들어봅시다. 양식을 작성하면 24시간 이내에 답변해드리겠습니다.",
+                "form.name": "이름",
+                "form.email": "이메일 주소",
+                "form.platform": "플랫폼 / 링크",
+                "form.message": "프로젝트에 대해 말씀해주세요",
+                "form.submit": "프로젝트 개요 보내기",
+                "footer": "© 2026 브랜드 구축. 진지한 크리에이터를 위해 설계되었습니다."
+            },
+            ar: {
+                brand: "بناء علامتك التجارية",
+                "nav.work": "أعمال",
+                "nav.pricing": "التسعير",
+                "nav.contact": "اتصل",
+                "nav.start": "ابدأ",
+                "hero.title": "العلامة التجارية الاحترافية للبث المباشر على TikTok",
+                "hero.subtitle": "أنظمة تراكب مخصصة ورسومات العلامة التجارية والهوية البصرية الكاملة للمبدعين الجادين",
+                "cta.pricing": "عرض الأسعار",
+                "cta.work": "عرض الأعمال",
+                "cta.start": "ابدأ",
+                "cta.talk": "دعنا نتحدث",
+                "portfolio.title": "الأعمال الحديثة",
+                "portfolio.item1.title": "نظام تراكب البث المباشر على TikTok",
+                "portfolio.item1.desc": "حزمة تراكب شاملة مع تنبيهات الدردشة وإشعارات المتابعين وعروض التبرعات. نظام ألوان مخصص.",
+                "portfolio.item2.title": "مجموعة هوية العلامة التجارية",
+                "portfolio.item2.desc": "لوحة ألوان ونظام الطباعة وإرشادات التصميم. يتم تسليم جميع الأصول في ملفات Canva قابلة للتحرير.",
+                "portfolio.item3.title": "رسومات وسائل التواصل الاجتماعي",
+                "portfolio.item3.desc": "نظام بصري متماسك عبر TikTok و Instagram و YouTube. رسوم توضيحية للمقدمة / الخاتمة والصور المصغرة وقوالب القصص.",
+                "pricing.title": "تسعير بسيط",
+                "pricing.period": "مشروع لمرة واحدة",
+                "pricing.starter.name": "مبتدئ",
+                "pricing.starter.f1": "حزمة تراكب البث المباشر على TikTok",
+                "pricing.starter.f2": "3-5 رسومات مخصصة",
+                "pricing.starter.f3": "تنبيهات الدردشة والإشعارات",
+                "pricing.starter.f4": "التسليم في 5 أيام",
+                "pricing.starter.f5": "جولة واحدة من المراجعات",
+                "pricing.pro.name": "احترافي",
+                "pricing.pro.f1": "كل شيء في المبتدئ",
+                "pricing.pro.f2": "نظام العلامة التجارية الكامل",
+                "pricing.pro.f3": "لوحة الألوان والطباعة",
+                "pricing.pro.f4": "مراجعات غير محدودة",
+                "pricing.pro.f5": "ملفات Canva قابلة للتحرير",
+                "pricing.pro.f6": "التسليم في 5 أيام",
+                "pricing.custom.name": "مخصص",
+                "pricing.custom.f1": "كل شيء في الاحترافي",
+                "pricing.custom.f2": "الجداول الموسعة",
+                "pricing.custom.f3": "منصات متعددة",
+                "pricing.custom.f4": "عناصر الرسوم المتحركة / الفيديو",
+                "pricing.custom.f5": "دعم مخصص",
+                "pricing.note": "تتضمن جميع المشاريع التسليم في 5 أيام والمراجعات غير المحدودة والملفات القابلة للتحرير.",
+                "contact.title": "هل أنت مستعد لبناء علامتك التجارية?",
+                "contact.desc": "دعنا ننشئ شيئًا مميزًا. أكمل النموذج وسأرد عليك خلال 24 ساعة.",
+                "form.name": "اسمك",
+                "form.email": "عنوان بريدك الإلكتروني",
+                "form.platform": "المنصة / الرابط",
+                "form.message": "خبرني عن مشروعك",
+                "form.submit": "إرسال ملخص المشروع",
+                "footer": "© 2026 بناء علامتك التجارية. تم تصميمه للمبدعين الجادين."
+            },
+            hi: {
+                brand: "अपना ब्रांड बनाएँ",
+                "nav.work": "काम",
+                "nav.pricing": "मूल्य निर्धारण",
+                "nav.contact": "संपर्क करें",
+                "nav.start": "शुरू करें",
+                "hero.title": "पेशेवर TikTok लाइव ब्रांडिंग",
+                "hero.subtitle": "कस्टम ओवरले सिस्टम, ब्रांड ग्राफिक्स और गंभीर निर्माताओं के लिए पूर्ण दृश्य पहचान",
+                "cta.pricing": "मूल्य देखें",
+                "cta.work": "काम देखें",
+                "cta.start": "शुरू करें",
+                "cta.talk": "बातचीत करें",
+                "portfolio.title": "हाल का काम",
+                "portfolio.item1.title": "TikTok लाइव ओवरले सिस्टम",
+                "portfolio.item1.desc": "चैट अलर्ट, फॉलोअर नोटिफिकेशन और डोनेशन डिस्प्ले के साथ संपूर्ण ओवरले पैकेज। कस्टम कलर सिस्टम।",
+                "portfolio.item2.title": "ब्रांड पहचान किट",
+                "portfolio.item2.desc": "रंग पैलेट, टाइपोग्राफी सिस्टम और डिज़ाइन दिशानिर्देश। सभी संपत्तियां संपादन योग्य Canva फ़ाइलों में दी जाती हैं।",
+                "portfolio.item3.title": "सोशल मीडिया ग्राफिक्स",
+                "portfolio.item3.desc": "TikTok, Instagram और YouTube में सुसंगत दृश्य प्रणाली। इंट्रो/आउट्रो एनिमेशन, थंबनेल, स्टोरी टेम्पलेट।",
+                "pricing.title": "सरल मूल्य निर्धारण",
+                "pricing.period": "एकबारी परियोजना",
+                "pricing.starter.name": "शुरुआत",
+                "pricing.starter.f1": "TikTok लाइव ओवरले पैकेज",
+                "pricing.starter.f2": "3-5 कस्टम ग्राफिक्स",
+                "pricing.starter.f3": "चैट अलर्ट और नोटिफिकेशन",
+                "pricing.starter.f4": "5 दिन की डिलीवरी",
+                "pricing.starter.f5": "1 संशोधन राउंड",
+                "pricing.pro.name": "पेशेवर",
+                "pricing.pro.f1": "शुरुआत में सब कुछ",
+                "pricing.pro.f2": "संपूर्ण ब्रांड सिस्टम",
+                "pricing.pro.f3": "रंग पैलेट और टाइपोग्राफी",
+                "pricing.pro.f4": "असीमित संशोधन",
+                "pricing.pro.f5": "संपादन योग्य Canva फ़ाइलें",
+                "pricing.pro.f6": "5 दिन की डिलीवरी",
+                "pricing.custom.name": "कस्टम",
+                "pricing.custom.f1": "पेशेवर में सब कुछ",
+                "pricing.custom.f2": "विस्तारित समयसीमा",
+                "pricing.custom.f3": "एकाधिक प्लेटफॉर्म",
+                "pricing.custom.f4": "एनिमेशन/वीडियो तत्व",
+                "pricing.custom.f5": "समर्पित समर्थन",
+                "pricing.note": "सभी परियोजनाओं में 5 दिन की डिलीवरी, असीमित संशोधन और संपादन योग्य फ़ाइलें शामिल हैं।",
+                "contact.title": "अपना ब्रांड बनाने के लिए तैयार हैं?",
+                "contact.desc": "आइए कुछ असाधारण बनाएं। फॉर्म भरें और मैं 24 घंटे में जवाब दूंगा।",
+                "form.name": "आपका नाम",
+                "form.email": "ईमेल पता",
+                "form.platform": "प्लेटफॉर्म / लिंक",
+                "form.message": "अपनी परियोजना के बारे में बताएं",
+                "form.submit": "प्रोजेक्ट ब्रीफ भेजें",
+                "footer": "© 2026 अपना ब्रांड बनाएँ। गंभीर निर्माताओं के लिए डिज़ाइन किया गया।"
+            },
+            tr: {
+                brand: "Markanızı İnşa Edin",
+                "nav.work": "Çalışmalar",
+                "nav.pricing": "Fiyatlandırma",
+                "nav.contact": "İletişim",
+                "nav.start": "Başlayın",
+                "hero.title": "Profesyonel TikTok Canlı Markalaması",
+                "hero.subtitle": "Özel eklenti sistemleri, marka grafikleri ve ciddi içerik oluşturucuların tam görsel kimliği",
+                "cta.pricing": "Fiyatları Görüntüle",
+                "cta.work": "Çalışmaları Görüntüle",
+                "cta.start": "Başlayın",
+                "cta.talk": "Konuşalım",
+                "portfolio.title": "Son Çalışmalar",
+                "portfolio.item1.title": "TikTok Canlı Eklenti Sistemi",
+                "portfolio.item1.desc": "Sohbet uyarıları, takipçi bildirimleri ve bağış ekranları içeren tam eklenti paketi. Özel renk sistemi.",
+                "portfolio.item2.title": "Marka Kimlik Kiti",
+                "portfolio.item2.desc": "Renk paleti, tipografi sistemi ve tasarım yönergeleri. Tüm varlıklar düzenlenebilir Canva dosyaları olarak sunulur.",
+                "portfolio.item3.title": "Sosyal Medya Grafikleri",
+                "portfolio.item3.desc": "TikTok, Instagram ve YouTube'da tutarlı görsel sistem. Giriş/çıkış animasyonları, küçük resimler, hikaye şablonları.",
+                "pricing.title": "Basit Fiyatlandırma",
+                "pricing.period": "Tek seferlik proje",
+                "pricing.starter.name": "Başlangıç",
+                "pricing.starter.f1": "TikTok Canlı Eklenti Paketi",
+                "pricing.starter.f2": "3-5 özel grafik",
+                "pricing.starter.f3": "Sohbet uyarıları ve bildirimler",
+                "pricing.starter.f4": "5 günlük teslim",
+                "pricing.starter.f5": "1 revizyon turu",
+                "pricing.pro.name": "Profesyonel",
+                "pricing.pro.f1": "Başlangıçta her şey",
+                "pricing.pro.f2": "Tam Marka Sistemi",
+                "pricing.pro.f3": "Renk paleti ve tipografi",
+                "pricing.pro.f4": "Sınırsız revizyonlar",
+                "pricing.pro.f5": "Düzenlenebilir Canva dosyaları",
+                "pricing.pro.f6": "5 günlük teslim",
+                "pricing.custom.name": "Özel",
+                "pricing.custom.f1": "Profesyonelde her şey",
+                "pricing.custom.f2": "Uzatılmış zaman çizelgeleri",
+                "pricing.custom.f3": "Çoklu platformlar",
+                "pricing.custom.f4": "Animasyon/video öğeleri",
+                "pricing.custom.f5": "Özel destek",
+                "pricing.note": "Tüm projeler 5 günlük teslim, sınırsız revizyonlar ve düzenlenebilir dosyaları içerir.",
+                "contact.title": "Markanızı İnşa Etmeye Hazır mısınız?",
+                "contact.desc": "Birlikte benzersiz bir şey yaratalım. Formu doldurun ve 24 saat içinde size geri döneceğim.",
+                "form.name": "Adınız",
+                "form.email": "E-posta Adresi",
+                "form.platform": "Platform / Bağlantı",
+                "form.message": "Projeniz hakkında bana anlatın",
+                "form.submit": "Proje Özetini Gönder",
+                "footer": "© 2026 Markanızı İnşa Edin. Kendini ciddiye alan içerik oluşturucuların için tasarlanmıştır."
+            },
+            pl: {
+                brand: "Zbuduj Swoją Markę",
+                "nav.work": "Prace",
+                "nav.pricing": "Cennik",
+                "nav.contact": "Kontakt",
+                "nav.start": "Zacznij",
+                "hero.title": "Profesjonalne Branding TikTok Live",
+                "hero.subtitle": "Niestandardowe systemy narzutów, grafika marki i pełna tożsamość wizualna dla poważnych twórców",
+                "cta.pricing": "Zobacz Ceny",
+                "cta.work": "Zobacz Prace",
+                "cta.start": "Zacznij",
+                "cta.talk": "Porozmawiajmy",
+                "portfolio.title": "Ostatnie Prace",
+                "portfolio.item1.title": "System Nakładek TikTok Live",
+                "portfolio.item1.desc": "Komplety nakładek z alertami czatu, powiadomieniami obserwujących i ekranami darowizn. Niestandardowy system kolorów.",
+                "portfolio.item2.title": "Zestaw Tożsamości Marki",
+                "portfolio.item2.desc": "Paleta kolorów, system typografii i wytyczne projektowania. Wszystkie zasoby dostarczane w edytowalnych plikach Canva.",
+                "portfolio.item3.title": "Grafika Mediów Społecznych",
+                "portfolio.item3.desc": "Spójny system wizualny na TikTok, Instagram i YouTube. Animacje intro/outro, miniatury, szablony historii.",
+                "pricing.title": "Proste Ceny",
+                "pricing.period": "Projekt jednorazowy",
+                "pricing.starter.name": "Start",
+                "pricing.starter.f1": "Pakiet Nakładek TikTok Live",
+                "pricing.starter.f2": "3-5 niestandardowych grafik",
+                "pricing.starter.f3": "Alerty czatu i powiadomienia",
+                "pricing.starter.f4": "Dostawa w 5 dni",
+                "pricing.starter.f5": "1 runda poprawek",
+                "pricing.pro.name": "Pro",
+                "pricing.pro.f1": "Wszystko w Start",
+                "pricing.pro.f2": "Kompletny System Marki",
+                "pricing.pro.f3": "Paleta kolorów i typografia",
+                "pricing.pro.f4": "Nieograniczone poprawki",
+                "pricing.pro.f5": "Edytowalne pliki Canva",
+                "pricing.pro.f6": "Dostawa w 5 dni",
+                "pricing.custom.name": "Niestandardowe",
+                "pricing.custom.f1": "Wszystko w Pro",
+                "pricing.custom.f2": "Przedłużone harmonogramy",
+                "pricing.custom.f3": "Wiele platform",
+                "pricing.custom.f4": "Elementy animacji/wideo",
+                "pricing.custom.f5": "Dedykowane wsparcie",
+                "pricing.note": "Wszystkie projekty obejmują dostawę w 5 dni, nieograniczone poprawki i edytowalne pliki.",
+                "contact.title": "Gotowy do Zbudowania Swojej Marki?",
+                "contact.desc": "Stwórzmy coś wyjątkowego. Wypełnij formularz, a odpowiedzę Ci w ciągu 24 godzin.",
+                "form.name": "Twoje Imię",
+                "form.email": "Adres E-mail",
+                "form.platform": "Platforma / Link",
+                "form.message": "Powiedz mi o swoim projekcie",
+                "form.submit": "Wyślij Streszczenie Projektu",
+                "footer": "© 2026 Zbuduj Swoją Markę. Zaprojektowano dla twórców, którzy traktują to poważnie."
+            },
+            nl: {
+                brand: "Bouw Je Merk",
+                "nav.work": "Werk",
+                "nav.pricing": "Prijzen",
+                "nav.contact": "Contact",
+                "nav.start": "Begin",
+                "hero.title": "Professioneel TikTok Live Branding",
+                "hero.subtitle": "Aangepaste overlaaysystemen, merkgrafisch en volledige visuele identiteit voor serieuze makers",
+                "cta.pricing": "Bekijk Prijzen",
+                "cta.work": "Bekijk Werk",
+                "cta.start": "Begin",
+                "cta.talk": "Laten we Praten",
+                "portfolio.title": "Recente Werk",
+                "portfolio.item1.title": "TikTok Live Overlaaysysteem",
+                "portfolio.item1.desc": "Compleet overlaypakket met chatwaarschuwingen, volgeraanslagingen en donatieweergave. Aangepast kleursysteem.",
+                "portfolio.item2.title": "Merkidentiteitskit",
+                "portfolio.item2.desc": "Kleurenpalet, typografiesysteem en ontwerprichtlijnen. Alle assets geleverd in bewerkbare Canva-bestanden.",
+                "portfolio.item3.title": "Sociale Media Grafische",
+                "portfolio.item3.desc": "Consistent visueel systeem op TikTok, Instagram en YouTube. Intro-/uitroapplicaties, miniaturen, verhaaltemplates.",
+                "pricing.title": "Eenvoudige Prijzen",
+                "pricing.period": "Eenmalig project",
+                "pricing.starter.name": "Starter",
+                "pricing.starter.f1": "TikTok Live Overlaypakket",
+                "pricing.starter.f2": "3-5 aangepaste afbeeldingen",
+                "pricing.starter.f3": "Chatwaarschuwingen en meldingen",
+                "pricing.starter.f4": "5-daagse afleverning",
+                "pricing.starter.f5": "1 herzieningsronde",
+                "pricing.pro.name": "Pro",
+                "pricing.pro.f1": "Alles in Starter",
+                "pricing.pro.f2": "Compleet Merksysteem",
+                "pricing.pro.f3": "Kleurenpalet en typografie",
+                "pricing.pro.f4": "Onbeperkte herzieningenen",
+                "pricing.pro.f5": "Bewerkbare Canva-bestanden",
+                "pricing.pro.f6": "5-daagse afleverning",
+                "pricing.custom.name": "Aangepast",
+                "pricing.custom.f1": "Alles in Pro",
+                "pricing.custom.f2": "Uitgebreide tijdlijnen",
+                "pricing.custom.f3": "Meerdere platforms",
+                "pricing.custom.f4": "Animatie-/videoelementen",
+                "pricing.custom.f5": "Toegewijd ondersteuning",
+                "pricing.note": "Alle projecten omvatten 5-daagse aflevering, onbeperkte revisies en bewerkbare bestanden.",
+                "contact.title": "Klaar om Je Merk op te Bouwen?",
+                "contact.desc": "Laten we iets bijzonders creëren. Vul het formulier in en ik reageer binnen 24 uur.",
+                "form.name": "Je Naam",
+                "form.email": "E-mailadres",
+                "form.platform": "Platform / Link",
+                "form.message": "Vertel me over je project",
+                "form.submit": "Projectschets Verzenden",
+                "footer": "© 2026 Bouw Je Merk. Ontworpen voor makers die het serieus nemen."
+            }
+        };
+
+        // Detect user language
+        function detectLanguage() {
+            const browserLang = navigator.language.split('-')[0];
+            const supportedLangs = Object.keys(translations);
+            return supportedLangs.includes(browserLang) ? browserLang : 'en';
+        }
+
+        // Get current language
+        function getCurrentLanguage() {
+            return localStorage.getItem('selectedLanguage') || detectLanguage();
+        }
+
+        // Change language
+        function changeLanguage(lang) {
+            localStorage.setItem('selectedLanguage', lang);
+            updatePageTranslations(lang);
+        }
+
+        // Update all translations on page
+        function updatePageTranslations(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update data-popular attribute for pricing cards
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            pricingCards.forEach((card, index) => {
+                if (index === 0) card.setAttribute('data-popular', translations[lang]['pricing.starter.name'] + ' LABEL');
+                if (index === 1) card.setAttribute('data-popular', translations[lang]['pricing.pro.name'] + ' - ' + translations[lang]['cta.work']);
+                if (index === 2) card.setAttribute('data-popular', translations[lang]['pricing.custom.name']);
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentLang = getCurrentLanguage();
+            document.getElementById('languageSelect').value = currentLang;
+            updatePageTranslations(currentLang);
+        });
+
+        // Utility functions
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                platform: document.getElementById('platform').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString(),
+                language: getCurrentLanguage()
+            };
+
+            console.log('Form submitted:', formData);
+
+            const submissions = JSON.parse(localStorage.getItem('brandSubmissions') || '[]');
+            submissions.push(formData);
+            localStorage.setItem('brandSubmissions', JSON.stringify(submissions));
+
+            const currentLang = getCurrentLanguage();
+            const confirmMsg = translations[currentLang]['contact.title'] || 'Thank you!';
+            alert(confirmMsg + ' - ' + document.getElementById('email').value);
+            
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
