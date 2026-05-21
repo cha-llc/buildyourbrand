@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products — CJ H. Adisa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy: #1A1A2E;
+            --navy-deep: #0D0D1A;
+            --gold: #C9A84C;
+            --gold-dim: #8a7332;
+            --teal: #2A9D8F;
+            --crimson: #C1121F;
+            --violet: #9B5DE5;
+            --ivory: #F4F0E6;
+            --text: #E8E4D8;
+            --text-dim: #9b9588;
+            --border: rgba(201, 168, 76, 0.18);
+            --font-display: 'Lora', Georgia, serif;
+            --font-body: 'Poppins', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--navy-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse at 15% 10%, rgba(201, 168, 76, 0.08) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 90%, rgba(42, 157, 143, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(155, 93, 229, 0.03) 0%, transparent 60%);
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 50;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(13, 13, 26, 0.7);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: var(--ivory);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            transition: color 0.3s;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+        .content {
+            margin-top: 100px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 3rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin: 2rem 0 1rem;
+            color: var(--ivory);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: var(--ivory);
+        }
+
+        h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--gold);
+        }
+
+        p { margin: 0.8rem 0; }
+
+        .app-detail {
+            border-left: 2px solid var(--teal);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .tech {
+            background: rgba(201, 168, 76, 0.08);
+            border: 1px solid var(--border);
+            padding: 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin: 0.5rem 0 1rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+            padding: 3rem;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1.5rem 1.5rem; }
+            .nav-links { gap: 1.5rem; font-size: 0.75rem; }
+            .content { padding: 0 1.5rem; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">CJ<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products.html" class="active">Products</a></li>
+            <li><a href="/case-studies.html">Case Studies</a></li>
+            <li><a href="/services.html">Services</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Software Built In-House</h1>
+        <p class="subtitle">Production apps across web and mobile. Real code. Real infrastructure. Real users.</p>
+
+        <h2 style="margin-top: 3rem;">Flagship Products</h2>
+
+        <div class="app-detail">
+            <h4>→ NOVA AI Show Producer</h4>
+            <p>Real-time content ideation, scripting, scheduling, and multi-platform posting. Powers content distribution at significant scale with intelligent automation, deduplication, and platform-specific optimization.</p>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin: 1rem 0;">Supabase Realtime | Edge Functions | MCP Integration | Intelligent Dedup | Multi-Platform Orchestration</p>
+            <p><strong>Tech:</strong> Next.js | Supabase | Vercel Edge Functions | MCP Servers | PostgreSQL RLS</p>
+        </div>
+
+        <div class="app-detail">
+            <h4>→ Income Machine</h4>
+            <p>Autonomous content-to-revenue system. Not just scheduling. A/B-tested hooks, peak-hour distribution, affiliate stacking, and attribution back to revenue.</p>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin: 1rem 0;"><strong>Scale:</strong> Sophisticated content batching with algorithmic optimization. Measurable revenue attribution per post.</p>
+            <p><strong>Tech:</strong> Supabase | pg_cron | Stripe API | Real-time Dashboards</p>
+        </div>
+
+        <div class="app-detail">
+            <h4>→ Locali</h4>
+            <p>Hyperlocal discovery platform. Geo-aware, community-driven discovery without algorithmic manipulation.</p>
+            <p><strong>Tech:</strong> React Native | Expo | Supabase</p>
+        </div>
+
+        <div class="app-detail">
+            <h4>→ Cielo</h4>
+            <p>Personal clarity & ritual companion. AI-guided journaling, mood mapping, intention setting. Multilingual with meditation flows.</p>
+            <p><strong>Tech:</strong> React Native | Firebase | Google Genkit</p>
+        </div>
+
+        <div class="app-detail">
+            <h4>→ BilleteraU</h4>
+            <p>Fintech wallet for cross-border payments. Bilingual. Dual payment processor integration.</p>
+            <p><strong>Tech:</strong> Expo SDK | Stripe | MercadoPago</p>
+        </div>
+
+        <div class="app-detail">
+            <h4>→ Budget Manager</h4>
+            <p>Financial operations dashboard. Multi-division financial tracking and analysis.</p>
+            <p><strong>Tech:</strong> Next.js 14 | Supabase | PostgreSQL RLS</p>
+        </div>
+
+        <div class="app-detail">
+            <h4>→ BookEditor</h4>
+            <p>Manuscript editor with AI line edits. Structure analysis, KDP-ready exports. Pricing: Pro $29 | Studio $99.</p>
+            <p><strong>Tech:</strong> Next.js | Claude API | Stripe</p>
+        </div>
+
+        <h2 style="margin-top: 3rem;">Complete Technology Stack</h2>
+
+        <h4>Frontend</h4>
+        <div class="tech-stack">
+            <div class="tech">React</div>
+            <div class="tech">Next.js 14</div>
+            <div class="tech">React Native</div>
+            <div class="tech">Expo SDK</div>
+            <div class="tech">TypeScript</div>
+            <div class="tech">Tailwind CSS</div>
+        </div>
+
+        <h4 style="margin-top: 2rem;">Backend & Database</h4>
+        <div class="tech-stack">
+            <div class="tech">Supabase</div>
+            <div class="tech">PostgreSQL</div>
+            <div class="tech">Row-Level Security</div>
+            <div class="tech">Realtime Subscriptions</div>
+            <div class="tech">Edge Functions</div>
+            <div class="tech">pg_cron</div>
+        </div>
+
+        <h4 style="margin-top: 2rem;">AI & LLM</h4>
+        <div class="tech-stack">
+            <div class="tech">Claude API</div>
+            <div class="tech">Google Genkit</div>
+            <div class="tech">Gemini</div>
+            <div class="tech">MCP Servers</div>
+        </div>
+
+        <h4 style="margin-top: 2rem;">Payments & Integrations</h4>
+        <div class="tech-stack">
+            <div class="tech">Stripe</div>
+            <div class="tech">MercadoPago</div>
+            <div class="tech">Firebase</div>
+            <div class="tech">MCP</div>
+        </div>
+
+        <h4 style="margin-top: 2rem;">Deployment & DevOps</h4>
+        <div class="tech-stack">
+            <div class="tech">Vercel</div>
+            <div class="tech">GitHub</div>
+            <div class="tech">GitHub Actions</div>
+            <div class="tech">Supabase Hosting</div>
+        </div>
+
+        <h4 style="margin-top: 2rem;">Data & Development</h4>
+        <div class="tech-stack">
+            <div class="tech">Python</div>
+            <div class="tech">dbt</div>
+            <div class="tech">SQL</div>
+            <div class="tech">Real-time Dashboards</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 CJ H. Adisa. All rights reserved.</p>
+    </footer>
+</body>
+</html>
