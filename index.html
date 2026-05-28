@@ -133,6 +133,20 @@
         }
         .lang-btn:hover { color: var(--gold); border-color: var(--gold); }
         .lang-btn.active { background: var(--gold); color: var(--navy-deep); border-color: var(--gold); }
+        .lang-select {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 0.35rem 0.5rem;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            transition: all 0.25s;
+            outline: none;
+        }
+        .lang-select:hover { color: var(--gold); border-color: var(--gold); }
+        .lang-select option { background: var(--navy); color: var(--text); }
 
         .hero {
             min-height: 100vh;
@@ -962,6 +976,19 @@
         <button class="lang-btn" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="de">DE</button>
         <button class="lang-btn" data-lang="pt">PT</button>
+        <select class="lang-select" id="langSelect" onchange="if(this.value){setLang(this.value);this.value='';}">
+            <option value="">+</option>
+            <option value="ru">RU</option>
+            <option value="ja">JA</option>
+            <option value="zh">ZH</option>
+            <option value="ko">KO</option>
+            <option value="ar">AR</option>
+            <option value="hi">HI</option>
+            <option value="tr">TR</option>
+            <option value="pl">PL</option>
+            <option value="nl">NL</option>
+            <option value="it">IT</option>
+        </select>
     </div>
 </nav>
 
@@ -986,7 +1013,7 @@
             </div>
             <div>
                 <span data-i18n="hero.shipped">Shipped</span>
-                <div class="meta-val">12+ products</div>
+                <div class="meta-val">15+ products</div>
             </div>
         </div>
     </div>
@@ -1034,7 +1061,7 @@
                     <div class="label" data-i18n="about.s1">Years Leading</div>
                 </div>
                 <div class="about-stat">
-                    <div class="num">12+</div>
+                    <div class="num">15+</div>
                     <div class="label" data-i18n="about.s2">Products Shipped</div>
                 </div>
                 <div class="about-stat">
@@ -1162,7 +1189,18 @@
             <div class="stack">
                 <span>Next.js 14</span><span>Supabase</span><span>RPC Auth</span>
             </div>
+        </div>
+
+        <div class="app-card">
+            <div class="index">009</div>
+            <div class="status">Live</div>
+            <div class="category">Automation · AI-Free</div>
+            <h3>CJ-Bot</h3>
+            <p>Autonomous business orchestrator running the entire C.H.A. LLC operation. Zero LLM calls — pure deterministic MCP routing. 40 database tables, 5 always-on loops, 3 ML models: revenue forecasting, churn prediction, and content performance scoring.</p>
+            <div class="stack">
+                <span>Supabase</span><span>pg_cron</span><span>MCP</span><span>Edge Functions</span><span>pgvector</span>
             </div>
+        </div>
 
     </div>
 </section>
@@ -1228,10 +1266,26 @@
                 <div class="framework-tile"><strong>L.E.G.A.C.Y.</strong>What outlives the work.</div>
             </div>
 
-            <a href="https://cjhadisa.gumroad.com" target="_blank" class="btn">
-                <span data-i18n="books.cta">View Catalog</span>
-                <span>↗</span>
-            </a>
+            <div style="margin-bottom: 1.5rem;">
+                <div class="framework-tile" style="border-left: 2px solid var(--crimson); margin-bottom: 0.8rem;">
+                    <strong style="color: var(--ivory);">The Weight of What We Left Behind</strong>
+                    <span style="color: var(--text-dim); font-size: 0.8rem;">Fiction · KDP · $4.99 — ASIN B0GX2TGW3V</span>
+                </div>
+                <div class="framework-tile" style="border-left: 2px solid var(--violet);">
+                    <strong style="color: var(--ivory);">Discipline Life Skills Catalog™ — Whop Courses</strong>
+                    <span style="color: var(--text-dim); font-size: 0.8rem;">All 4 frameworks available as full Ivy League-grade courses · $297 each</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                <a href="https://cjhadisa.gumroad.com" target="_blank" class="btn">
+                    <span data-i18n="books.cta">View Catalog</span>
+                    <span>↗</span>
+                </a>
+                <a href="https://whop.com/joined/tea-time-network/" target="_blank" class="btn outline">
+                    <span>Whop Courses</span>
+                    <span>↗</span>
+                </a>
+            </div>
         </div>
 
         <div class="books-visual">
@@ -1348,12 +1402,33 @@
             </div>
         </div>
 
+        <div style="margin: 2rem 0; padding: 1.5rem 2rem; background: rgba(42,157,143,0.06); border: 1px solid rgba(42,157,143,0.25); border-left: 3px solid var(--teal);">
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--teal); text-transform: uppercase; margin-bottom: 0.75rem;">Software Consulting Division</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem;">
+                <div>
+                    <div style="font-family: var(--font-display); color: var(--ivory); font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem;">SBCC — Software Audit</div>
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--teal);">$15K · Full Systems Audit</div>
+                </div>
+                <div>
+                    <div style="font-family: var(--font-display); color: var(--ivory); font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem;">Custom Software Build</div>
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--teal);">$15K–$50K+ · ICP $1M–$50M</div>
+                </div>
+                <div>
+                    <div style="font-family: var(--font-display); color: var(--ivory); font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem;">Technical Retainer</div>
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--teal);">$1K+/mo · Ongoing Systems</div>
+                </div>
+            </div>
+        </div>
+
         <div class="consult-cta-row">
-            <a href="https://freedomaudit.youcanbook.me" target="_blank" class="btn">
+            <a href="https://cjhadisa.com/book" target="_blank" class="btn">
                 <span data-i18n="consult.cta1">Book Audit</span><span>↗</span>
             </a>
             <a href="https://chatechconsulting.com" target="_blank" class="btn outline">
                 <span data-i18n="consult.cta2">CHATECHCONSULTING</span><span>↗</span>
+            </a>
+            <a href="https://chasbcc.vercel.app" target="_blank" class="btn outline">
+                <span>SBCC</span><span>↗</span>
             </a>
         </div>
     </div>
@@ -1380,6 +1455,8 @@
                 <li><a href="#shows">Tea Time Network</a></li>
                 <li><a href="https://cjhadisa.gumroad.com" target="_blank">Gumroad</a></li>
                 <li><a href="https://chatechconsulting.com" target="_blank">CHATECHCONSULTING</a></li>
+                <li><a href="https://chasbcc.vercel.app" target="_blank">SBCC</a></li>
+                <li><a href="https://whop.com/joined/tea-time-network/" target="_blank">Whop Courses</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -1418,7 +1495,7 @@
             'about.p2':'My background isn\'t typical for a tech founder. I came up through bakery ownership, multi-unit restaurant management, personal banking, and federally regulated disaster case management. Every one of those roles taught me something I now use daily: how to build compliant systems, how to manage stress in high-stakes environments, how to lead people who are tired, and how to ship.',
             'about.p3':'I work fully remote. I write the code, the copy, the books, and the strategy. The work is built to compound — quietly, repeatedly, on purpose.',
             'about.s1':'Years Leading',
-            'about.s2':'Products Shipped',
+            'about.s2':'15+ Products Shipped',
             'about.s3':'Divisions Operated',
             'about.videotag':'A Word From CJ',
             'about.videoheading':'Welcome to the page.',
@@ -1624,6 +1701,136 @@
             'footer.work':'Trabalho','footer.apps':'Apps','footer.tools':'Ferramentas','footer.books':'Livros','footer.consulting':'Consultoria',
             'footer.network':'Rede','footer.contact':'Contato',
             'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        ru: {
+            'nav.apps':'Приложения','nav.shows':'Шоу','nav.books':'Книги','nav.tools':'Инструменты','nav.consulting':'Консалтинг','nav.about':'Обо Мне',
+            'hero.eyebrow':'Основатель · Строитель · Рассказчик',
+            'hero.line1':'Приложения, слова и','hero.line2':'работа, которая растёт.',
+            'hero.tagline':'Программное обеспечение, подкасты, книги и консалтинг под одной крышей — C.H.A. LLC.',
+            'hero.based':'Операции','hero.divisions':'Отделы','hero.shipped':'Запущено',
+            'about.title1':'CJ H.','about.title2':'Адиса.',
+            'apps.title1':'Программы','apps.title2':'сделанные внутри.',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'Концепции','books.title2':'на бумаге.',
+            'books.cta':'Каталог','tools.title1':'Цифровые','tools.title2':'продукты.',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        ja: {
+            'nav.apps':'アプリ','nav.shows':'番組','nav.books':'書籍','nav.tools':'ツール','nav.consulting':'コンサルティング','nav.about':'概要',
+            'hero.eyebrow':'創設者 · ビルダー · ストーリーテラー',
+            'hero.line1':'アプリ、言葉、そして','hero.line2':'複利で育つ仕事。',
+            'hero.tagline':'ソフトウェア、ポッドキャスト、書籍、コンサルティング — C.H.A. LLC.',
+            'hero.based':'運営','hero.divisions':'部門','hero.shipped':'リリース済み',
+            'about.title1':'CJ H.','about.title2':'Adisa.',
+            'apps.title1':'ソフトウェア','apps.title2':'自社開発。',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'フレームワーク','books.title2':'書籍化。',
+            'books.cta':'カタログを見る','tools.title1':'デジタル','tools.title2':'プロダクト。',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        zh: {
+            'nav.apps':'应用','nav.shows':'节目','nav.books':'书籍','nav.tools':'工具','nav.consulting':'咨询','nav.about':'关于',
+            'hero.eyebrow':'创始人 · 构建者 · 讲故事者',
+            'hero.line1':'应用、文字与','hero.line2':'持续增值的工作。',
+            'hero.tagline':'软件、播客网络、书籍与咨询，尽在一屋 — C.H.A. LLC.',
+            'hero.based':'运营','hero.divisions':'部门','hero.shipped':'已发布',
+            'about.title1':'CJ H.','about.title2':'Adisa.',
+            'apps.title1':'软件','apps.title2':'内部构建。',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'框架','books.title2':'成书。',
+            'books.cta':'查看目录','tools.title1':'数字','tools.title2':'产品。',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        ko: {
+            'nav.apps':'앱','nav.shows':'쇼','nav.books':'책','nav.tools':'도구','nav.consulting':'컨설팅','nav.about':'소개',
+            'hero.eyebrow':'창업자 · 빌더 · 스토리텔러',
+            'hero.line1':'앱, 글, 그리고','hero.line2':'복리로 성장하는 일.',
+            'hero.tagline':'소프트웨어, 팟캐스트, 책, 컨설팅 한 지붕 아래 — C.H.A. LLC.',
+            'hero.based':'운영','hero.divisions':'부문','hero.shipped':'출시됨',
+            'about.title1':'CJ H.','about.title2':'Adisa.',
+            'apps.title1':'소프트웨어','apps.title2':'자체 개발.',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'프레임워크','books.title2':'책으로.',
+            'books.cta':'카탈로그 보기','tools.title1':'디지털','tools.title2':'제품.',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        ar: {
+            'nav.apps':'تطبيقات','nav.shows':'عروض','nav.books':'كتب','nav.tools':'أدوات','nav.consulting':'استشارات','nav.about':'عن',
+            'hero.eyebrow':'مؤسس · بناء · راوي',
+            'hero.line1':'تطبيقات، كلمات، و','hero.line2':'عمل يتراكم.',
+            'hero.tagline':'برمجيات، شبكات بودكاست، كتب واستشارات تحت سقف واحد — C.H.A. LLC.',
+            'hero.based':'التشغيل','hero.divisions':'الأقسام','hero.shipped':'تم الإطلاق',
+            'about.title1':'CJ H.','about.title2':'Adisa.',
+            'apps.title1':'برامج','apps.title2':'مصنوعة داخلياً.',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'أطر','books.title2':'على الورق.',
+            'books.cta':'عرض الكتالوج','tools.title1':'منتجات','tools.title2':'رقمية.',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        hi: {
+            'nav.apps':'ऐप्स','nav.shows':'शोज़','nav.books':'किताबें','nav.tools':'टूल्स','nav.consulting':'परामर्श','nav.about':'परिचय',
+            'hero.eyebrow':'संस्थापक · निर्माता · कथाकार',
+            'hero.line1':'ऐप्स, शब्द और','hero.line2':'काम जो बढ़ता रहता है।',
+            'hero.tagline':'सॉफ़्टवेयर, पॉडकास्ट, किताबें और परामर्श एक ही छत के नीचे — C.H.A. LLC.',
+            'hero.based':'संचालन','hero.divisions':'विभाग','hero.shipped':'लॉन्च किया',
+            'about.title1':'CJ H.','about.title2':'Adisa.',
+            'apps.title1':'सॉफ़्टवेयर','apps.title2':'घर में बना।',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'फ्रेमवर्क','books.title2':'कागज पर।',
+            'books.cta':'कैटलॉग देखें','tools.title1':'डिजिटल','tools.title2':'उत्पाद।',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        tr: {
+            'nav.apps':'Uygulamalar','nav.shows':'Programlar','nav.books':'Kitaplar','nav.tools':'Araçlar','nav.consulting':'Danışmanlık','nav.about':'Hakkında',
+            'hero.eyebrow':'Kurucu · Geliştirici · Hikayeci',
+            'hero.line1':'Uygulamalar, kelimeler ve','hero.line2':'bileşik büyüyen iş.',
+            'hero.tagline':'Yazılım, podcast ağları, kitaplar ve danışmanlık tek çatı altında — C.H.A. LLC.',
+            'hero.based':'Operasyon','hero.divisions':'Bölümler','hero.shipped':'Gönderildi',
+            'about.title1':'CJ H.','about.title2':'Adisa.',
+            'apps.title1':'Yazılım','apps.title2':'şirket içi yapıldı.',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'Çerçeveler','books.title2':'kağıt üzerinde.',
+            'books.cta':'Katalog','tools.title1':'Dijital','tools.title2':'ürünler.',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        pl: {
+            'nav.apps':'Aplikacje','nav.shows':'Programy','nav.books':'Książki','nav.tools':'Narzędzia','nav.consulting':'Doradztwo','nav.about':'O Mnie',
+            'hero.eyebrow':'Założyciel · Budowniczy · Narrator',
+            'hero.line1':'Aplikacje, słowa i','hero.line2':'praca, która procentuje.',
+            'hero.tagline':'Oprogramowanie, podcasty, książki i doradztwo pod jednym dachem — C.H.A. LLC.',
+            'hero.based':'Operacje','hero.divisions':'Działy','hero.shipped':'Wysłano',
+            'about.title1':'CJ H.','about.title2':'Adisa.',
+            'apps.title1':'Oprogramowanie','apps.title2':'stworzone wewnętrznie.',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'Frameworki','books.title2':'na papierze.',
+            'books.cta':'Katalog','tools.title1':'Produkty','tools.title2':'cyfrowe.',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        nl: {
+            'nav.apps':'Apps','nav.shows':'Shows','nav.books':'Boeken','nav.tools':'Tools','nav.consulting':'Advies','nav.about':'Over',
+            'hero.eyebrow':'Oprichter · Bouwer · Verhalenverteller',
+            'hero.line1':'Apps, woorden en','hero.line2':'werk dat samengesteld groeit.',
+            'hero.tagline':'Software, podcastnetwerken, boeken en advies onder één dak — C.H.A. LLC.',
+            'hero.based':'Operaties','hero.divisions':'Afdelingen','hero.shipped':'Verzonden',
+            'about.title1':'CJ H.','about.title2':'Adisa.',
+            'apps.title1':'Software','apps.title2':'intern gebouwd.',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'Frameworks','books.title2':'op papier.',
+            'books.cta':'Catalogus','tools.title1':'Digitale','tools.title2':'producten.',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
+        },
+        it: {
+            'nav.apps':'App','nav.shows':'Show','nav.books':'Libri','nav.tools':'Strumenti','nav.consulting':'Consulenza','nav.about':'Chi Sono',
+            'hero.eyebrow':'Fondatore · Costruttore · Narratore',
+            'hero.line1':'App, parole e','hero.line2':'lavoro che si moltiplica.',
+            'hero.tagline':'Software, reti podcast, libri e consulenza sotto un unico tetto — C.H.A. LLC.',
+            'hero.based':'Operazioni','hero.divisions':'Divisioni','hero.shipped':'Consegnato',
+            'about.title1':'CJ H.','about.title2':'Adisa.',
+            'apps.title1':'Software','apps.title2':'sviluppato internamente.',
+            'shows.title1':'Tea Time','shows.title2':'Network.',
+            'books.title1':'Framework','books.title2':'su carta.',
+            'books.cta':'Catalogo','tools.title1':'Prodotti','tools.title2':'digitali.',
+            'footer.slogan':'Sip slow. Love loud. Live free.'
         }
     };
 
@@ -1648,7 +1855,28 @@
         const saved = localStorage.getItem('lang');
         if (saved && T[saved]) setLang(saved);
     } catch(e) {}
+
+    // Supabase page view analytics — anonymous, no PII
+    (function() {
+        try {
+            fetch('https://vzzzqsmqqaoilkmskadl.supabase.co/rest/v1/page_views', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6enpxc21xcWFvaWxrbXNrYWRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4NjYzMjQsImV4cCI6MjA5MTQ0MjMyNH0.vYkiz5BeoJlhNzcEiiGQfsHLE5UfqJbTTBjNXk1xxJs',
+                    'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify({
+                    page: 'buildyourbrand',
+                    referrer: document.referrer || null,
+                    lang: document.documentElement.lang || 'en',
+                    ua: navigator.userAgent.slice(0, 100)
+                })
+            }).catch(() => {});
+        } catch(e) {}
+    })();
 </script>
 
 </body>
 </html>
+
